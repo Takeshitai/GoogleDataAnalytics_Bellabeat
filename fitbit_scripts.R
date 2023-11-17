@@ -11,12 +11,12 @@ library(readr) #save csv
 library(plotly) #pie chart
 
 # Import and create dataframe
-daily_activity <- read_csv('dailyActivity_merged.csv')
-daily_calories <- read_csv('dailyCalories_merged.csv')
-daily_intensities <- read_csv('dailyIntensities_merged.csv')
-daily_steps <- read_csv('dailySteps_merged.csv')
-daily_sleep <- read_csv('sleepDay_merged.csv')
-weight_log <- read_csv('weightLogInfo_merged.csv')
+daily_activity <- read_csv('./data/dailyActivity_merged.csv')
+daily_calories <- read_csv('./data/dailyCalories_merged.csv')
+daily_intensities <- read_csv('./data/dailyIntensities_merged.csv')
+daily_steps <- read_csv('./data/dailySteps_merged.csv')
+daily_sleep <- read_csv('./data/sleepDay_merged.csv')
+weight_log <- read_csv('./data/weightLogInfo_merged.csv')
 
 # Clean up and look for repetition
 # Display dimensions
