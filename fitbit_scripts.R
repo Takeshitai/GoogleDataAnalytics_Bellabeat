@@ -1,4 +1,6 @@
-# Analyze Data from Fitbit
+# Analyze Data from Fitbit to analyze smart device usage 
+# Gain insight into how people are already using smart devices
+
 # Load Packages
 library(plotly)
 library(tidyverse) 
@@ -96,7 +98,21 @@ weight_log %>%
   distinct()
 
 # Viewing the summary of merged_data to take some notes
-summary(merged_data)
+merged_data %>%
+  dplyr::select(Weekday,
+                TotalSteps,
+                TotalDistance,
+                VeryActiveMinutes,
+                FairlyActiveMinutes,
+                LightlyActiveMinutes,
+                SedentaryMinutes,
+                Calories,
+                TotalMinutesAsleep,
+                TotalTimeInBed,
+                WeightPounds,
+                BMI
+  ) %>%
+  summary()
 
 # Order M-Sun for Avg Results
 # Define the custom order of weekdays
@@ -116,11 +132,30 @@ View(daily_activity_avgCal)
 # Create a bar plot with the custom order
 library(ggplot2)
 ggplot(daily_activity_avgCal, aes(x = Weekday, y = AvgCalories)) +
-  geom_bar(stat = "identity", position = "dodge", fill = "lightblue") +
+  geom_bar(stat = "identity", position = "dodge", fill = "skyblue") +
   labs(title = "Average Calories by Day of the Week",
        x = "Weekday",
        y = "Average Calories") +
   theme_minimal()
 
+# Avg Cal appears to be greater on Saturday
 
+average_weight <- weight_log %>%
+  group_by(Id) %>%
+  summarize(AvgWeightKg = mean(WeightKg, na.rm = TRUE))
+
+ggplot(data=merged_data, aes(x=Weekday, y=TotalSteps, fill=Weekday))+ 
+  geom_bar(stat="identity", fill="skyblue")+
+  labs(title="Steps per Day", y="Total Steps")
+
+ggplot(data=merged_data, aes(x=Weekday, y=TotalMinutesAsleep, fill=Weekday))+ 
+  geom_bar(stat="identity", fill="skyblue")+
+  labs(title="Total Minutes Asleep During the Week", y="Total Minutes Asleep")
+
+ggplot(data=merged_data, aes(x=Weekday, y=SedentaryMinutes, fill=Weekday))+ 
+  geom_bar(stat="identity", fill="skyblue")+
+  labs(title="Sedentary Min", y="Sedentary Minutes")
+
+ggplot(data=merged_data, aes(x=Weekday, y=TotalDistance, fill=Weekday))+ 
+  geom_bar(stat="identity")
 
