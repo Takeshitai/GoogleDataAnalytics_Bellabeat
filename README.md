@@ -45,6 +45,7 @@ Analyze Data from Fitbit to analyze smart device usage
 Gain insight into how people are already using smart devices
 
 Load Packages
+```
 library(plotly)
 library(tidyverse) 
 library(dplyr) 
@@ -54,14 +55,17 @@ library(ggplot2) #visualize data
 library(cowplot) #grid the plot
 library(readr) #save csv 
 library(plotly) #pie chart
+```
 
-Import and create dataframe
+<h2>Import and create dataframe</h2>
+<h3>
 daily_activity <- read_csv('./data/dailyActivity_merged.csv')
 daily_calories <- read_csv('./data/dailyCalories_merged.csv')
 daily_intensities <- read_csv('./data/dailyIntensities_merged.csv')
 daily_steps <- read_csv('./data/dailySteps_merged.csv')
 daily_sleep <- read_csv('./data/sleepDay_merged.csv')
 weight_log <- read_csv('./data/weightLogInfo_merged.csv')
+</h3>
 
 Clean up and look for repetition
 Display dimensions
@@ -132,3 +136,5 @@ merged_data[order(merged_data$Weekday), ]
 
 Save merged_data to a new .csv file
 write_csv(merged_data, "merged_data.csv")
+
+## 4. Analyze
