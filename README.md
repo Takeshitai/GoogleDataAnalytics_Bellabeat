@@ -6,12 +6,12 @@
 #
 _The case study follows the six step data analysis process:_
 
-### ❓ [Ask](#1-ask)
-### 💻 [Prepare](#2-prepare)
-### 🛠 [Process](#3-process)
-### 📊 [Analyze](#4-analyze)
-### 📋 [Share](#5-share)
-### 🧗‍♀️ [Act](#6-act)
+###  [Ask](#1-ask)
+###  [Prepare](#2-prepare)
+###  [Process](#3-process)
+###  [Analyze](#4-analyze)
+###  [Share](#5-share)
+###  [Act](#6-act)
 
 ## Introduction
 Bellabeat is a successful small company, but they have the potential to become a larger player in the global smart device market. Urška Sršen, cofounder and Chief Creative Officer of Bellabeat, believes that analyzing smart device fitness data could help unlock new growth opportunities for the company. The goal of this task is to focus on one of Bellabeat’s products and analyze smart device data to gain insight into how consumers are using their smart devices. The insights you discover will then help guide marketing strategy for the company. You will present your analysis to the Bellabeat executive team along with your high-level recommendations for Bellabeat’s marketing strategy
