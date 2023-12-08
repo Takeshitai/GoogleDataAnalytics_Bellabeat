@@ -150,3 +150,62 @@ write_csv(merged_data, "merged_data.csv")
 ```
 
 ## 4. Analyze
+### Summary:
+Avg weight is 135 pounds 
+Avg BMI was 24 and daily calories 2050. 
+Avg steps is 10200, while max is almost triple that 36000 steps. 
+Users spend on avg 12 hours a day in sedentary minutes, 4 hours lightly active, only half hour in fairly+very active! Users also gets about 7 hour of sleep. 
+```
+merged_data %>%
+  dplyr::select(Weekday,
+         TotalSteps,
+         TotalDistance,
+         VeryActiveMinutes,
+         FairlyActiveMinutes,
+         LightlyActiveMinutes,
+         SedentaryMinutes,
+         Calories,
+         TotalMinutesAsleep,
+         TotalTimeInBed,
+         WeightPounds,
+         BMI
+         ) %>%
+  summary()
+```
+### Active Minutes:
+
+Percentage of active minutes in the four categories: very active, fairly active, lightly active and sedentary. From the pie chart, we can see that most users spent 81.3% of their daily activity in sedentary minutes and only 1.74% in very active minutes. 
+```
+percentage <- data.frame(
+  level=c("Sedentary", "Lightly", "Fairly", "Very Active"),
+  minutes=c(sedentary_percentage,lightly_percentage,fairly_percentage,active_percentage)
+)
+
+plot_ly(percentage, labels = ~level, values = ~minutes, type = 'pie',textposition = 'outside',textinfo = 'label+percent') %>%
+  layout(title = 'Activity Level Minutes',
+         xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+         yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
+```
+
+### Active Day:
+
+User spent LESS time in sedentary minutes and take MORE steps on Saturdays. 
+Possibly suggesting that users are out and about on Saturdays. 
+
+## 5. Share 
+
+### 🎨 [Bellabeat Data Analysis Dashboard](https://public.tableau.com/views/BellabeatAnalysis_17019145293670/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link)
+
+## 6. Act
+[Back to Top](#author-emi-ly)
+
+Conclusions:
+- Regarding user activity, Sedentary make up a significant portion, where 81% of users' daily active minutes. Users spend on avg 12 hours a day in sedentary minutes, 4 hours lightly active, and only half-hour in fairly+very active.
+- We see the most change on Saturday: users take more steps, burn more calories, and spend less time sedentary. Sunday is the most "lazy" day for users. 
+- Users takes the most steps from 5 PM to 7 PM
+
+Marketing recommendations to expand globally:
+
+#####  Obtain more data for an accurate analysis, encouraging users to use a auto connecting scale instead of manual weight entries to get more user data. 
+
+#####  The product, such as Leaf wellness tracker, can beat or vibrate after a prolonged period of sedentary minutes, signaling the user it's time to get active. 
